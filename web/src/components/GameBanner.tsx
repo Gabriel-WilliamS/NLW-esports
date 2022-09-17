@@ -6,10 +6,10 @@ interface GameBannerProps {
 
 export function GameBanner(props: GameBannerProps) {
   return (
-    <a href="" className="relative rounded-lg overflow-hidden">
-      <img src={props.bannerUrl} />
+    <a href="" className="relative rounded overflow-hidden ">
+      <img src={props.bannerUrl} className="rounded" />
 
-      <div className="w-full pt-16 pb-4 px-4 bg-game-gradient flex flex-col gap-1 absolute left-0 bottom-0 right-0 ">
+      <div className="w-full pt-16 pb-4 px-4 bg-game-gradient flex flex-col gap-1 absolute left-0 rounded bottom-0 right-0 ">
         <strong className="font-bold text-white">{props.title}</strong>
         <span className="text-zinc-300 text-sm">
           {props.adsCount} anúncio(s)
