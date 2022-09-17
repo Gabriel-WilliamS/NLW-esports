@@ -26,6 +26,22 @@ app.get("/games", async (request, response) => {
   return response.json(games);
 });
 
+app.get("/games-with-ads", async (request, response) => {
+  const games = await prisma.game.findMany({
+    include: {
+      _count: {
+        select: {
+          ads: true
+        }
+      }
+    }
+  });
+
+  const gamesWithAds = games.filter((game) => game._count.ads != 0);
+
+  return response.json(gamesWithAds);
+});
+
 app.post("/games/:id/ads", async (request, response) => {
   const gameId = request.params.id;
   const body: any = request.body;
