@@ -30,7 +30,7 @@ export function GameSelect({ handleSelectGame }: GameSelectProps) {
     >
       <Select.SelectTrigger
         aria-label="Game"
-        className="bg-zinc-900 py-3 px-4 rounded text-sm text-zinc-500 flex justify-between relative items-center "
+        className="bg-zinc-900  py-3 px-4 rounded text-sm text-zinc-500 flex justify-between relative items-center "
       >
         <Select.SelectValue placeholder="Selecione o game que deseja jogar" />
         <Select.SelectIcon>
@@ -38,7 +38,7 @@ export function GameSelect({ handleSelectGame }: GameSelectProps) {
         </Select.SelectIcon>
       </Select.SelectTrigger>
       <Select.Portal>
-        <Select.SelectContent className="bg-zinc-900 border-zinc-700 border-solid border-2 rounded absolute top-0 left-0 right-0">
+        <Select.SelectContent className="bg-zinc-900 z-20 border-zinc-700 border-solid border-2 rounded absolute top-0 left-0 right-0">
           <Select.SelectScrollUpButton className="flex items-center justify-center">
             <CaretUp size={24} className="text-zinc-400 " />
           </Select.SelectScrollUpButton>
