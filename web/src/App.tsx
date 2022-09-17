@@ -27,7 +27,7 @@ function App() {
   const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
-    axios("http://localhost:3333/games").then((response) => {
+    axios("http://localhost:3333/games-with-ads").then((response) => {
       setGames(response.data);
     });
   }, []);
@@ -53,7 +53,7 @@ function App() {
       >
         {games.length > 0 &&
           games.map((game) => (
-            <SwiperSlide>
+            <SwiperSlide key={game.id}>
               <GameBanner
                 bannerUrl={game.bannerUrl}
                 title={game.title}

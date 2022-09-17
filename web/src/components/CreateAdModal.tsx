@@ -16,8 +16,6 @@ export function CreateAdModal() {
   const [useVoiceChannel, setVoiceChannel] = useState(false);
 
   function handleCreateAd(event: FormEvent) {
-    event.preventDefault();
-
     const formData = new FormData(event.target as HTMLFormElement);
     const data = Object.fromEntries(formData);
 
@@ -30,6 +28,7 @@ export function CreateAdModal() {
       !gameSelected ||
       !weekDays
     ) {
+      event.preventDefault();
       return alert("O todos os campos devem ser preenchidos");
     }
 
