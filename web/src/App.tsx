@@ -49,7 +49,7 @@ function App() {
         spaceBetween={24}
         freeMode={true}
         modules={[Navigation]}
-        className="mySwiper mt-16"
+        className="mySwiper mt-16 select-none"
       >
         {games.length > 0 &&
           games.map((game) => (

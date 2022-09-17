@@ -3,7 +3,7 @@ import cors from "cors";
 import { PrismaClient } from "@prisma/client";
 import { convertHoursStringToMinutes } from "./utils/convert-hour-string-to-minute";
 import { convertMinutesToHoursString } from "./utils/convert-minutes-to-hour-string";
-
+import { gameList } from "./utils/gameList";
 const app = express();
 const prisma = new PrismaClient({
   log: ["query"]
@@ -20,6 +20,9 @@ app.get("/games", async (request, response) => {
           ads: true
         }
       }
+    },
+    orderBy: {
+      title: "asc"
     }
   });
 
@@ -111,4 +114,21 @@ app.get("/ads/:id/discord", async (request, response) => {
   });
 });
 
+// PARA CADASTRAR JOGOS DO GAMELIST
+
+// app.post("/game", async (request, response) => {
+//   try {
+//     for (let game of gameList) {
+//       await prisma.game.create({
+//         data: {
+//           title: game.Jogo,
+//           bannerUrl: game.Image
+//         }
+//       });
+//     }
+//     response.json({ message: "Jogo Criado!" });
+//   } catch (error) {
+//     response.json({ message: error });
+//   }
+// });
 app.listen(3333, () => console.log("server is running"));
